@@ -1,0 +1,14 @@
+.logo {
+  width: 80px;
+}
+body, html {
+  height: 100%;
+}
+
+.pointer{
+  cursor: pointer !important;
+}
+
+@import "variables";
+@import "bootstrap/scss/bootstrap";
+@import 'choices.js/public/assets/styles/choices';
