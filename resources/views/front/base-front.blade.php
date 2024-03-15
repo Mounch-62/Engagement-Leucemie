@@ -19,7 +19,7 @@ Site de Engagement Leucémie
       <a>MOELLE OSSEUSE</a>
       <a>DON DE MOELLE OSSEUSE</a>
       <a>L'ASSOCIATION</a>
-      <a href="{{ route('front.actualite')}}">NOS ACTUALITÉS</a>
+      <a class="light" href="{{ route('front.actualite')}}">NOS ACTUALITÉS</a>
       <a>CONTACT</a>
     </div>
     <button class="border-0 bg-orange">DEVENIR DONNEUR</button>
