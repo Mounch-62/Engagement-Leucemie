@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\BureauController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('base.home');
 });
+Route::get('/el-admin', function () {
+    return view('admin.base-admin');
+});
+Route::get('/el-admin/bureau',[BureauController::class, 'index'])->name('admin.bureau');
