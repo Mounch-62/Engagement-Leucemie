@@ -1,2 +1,43 @@
 // Couleurs
 $primary: #16a64c;
+$secondary: #35d66d;
+$orange: #ff9900;
+$success: #0acf97;
+$danger: #fa5c7c;
+$warning: #ffbc00;
+$info: #39afd1;
+$light: #f0f0f0;
+$dark: #313a46;
+
+$theme-colors: (
+    "primary": $primary,
+    "secondary": $secondary,
+    "success" : $success,
+    "danger": $danger,
+    "warning": $warning,
+    "info": $info,
+    "light": $light,
+    "dark": $dark
+);
+
+$custom-colors: (
+    "orange": #ff9900
+);
+
+// Mettre les couleurs perso dans la liste des couleurs présentes
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+
+$spacer: 1rem;
+$spacers: (
+    0: 0,
+    1: $spacer * 0.25,
+    2: $spacer * 0.5,
+    3: $spacer,
+    4: $spacer * 1.5,
+    5: $spacer * 3,
+    6: $spacer * 6,
+    7: $spacer * 9,
+    8: $spacer * 12
+);
+
