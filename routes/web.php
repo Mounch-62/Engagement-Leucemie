@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FrontController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('base.home');
 });
+Route::get('/front', [FrontController::class, 'home'])->name("front.home");
+Route::get('/actualite', [FrontController::class, 'actualite'])->name("front.actualite");
