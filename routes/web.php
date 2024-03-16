@@ -3,6 +3,7 @@
 use App\Http\Controllers\FrontController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BureauController;
+use App\Http\Controllers\PartenaireController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,5 +22,6 @@ Route::get('/el-admin', function () {
     return view('admin.base-admin');
 });
 Route::get('/el-admin/bureau',[BureauController::class, 'index'])->name('admin.bureau');
+Route::get('/el-admin/partenaire',[PartenaireController::class, 'index'])->name('admin.partenaire');
 Route::get('/front', [FrontController::class, 'home'])->name("front.home");
 Route::get('/actualite', [FrontController::class, 'actualite'])->name("front.actualite");
