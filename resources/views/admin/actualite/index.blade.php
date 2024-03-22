@@ -37,11 +37,7 @@
             @method("delete")
             <input type="submit" value="Supprimer">                                  
           </form>
-        <td>
-          <button >Modifier</button>
-          <button >Supprimer</button>
         </td>
-
       </tr> 
     @endforeach
 
