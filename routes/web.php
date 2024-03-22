@@ -3,6 +3,7 @@
 use App\Http\Controllers\FrontController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BureauController;
+use App\Http\Controllers\ActualiteController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,6 +21,8 @@ Route::get('/', function () {
 Route::get('/el-admin', function () {
     return view('admin.base-admin');
 });
-Route::get('/el-admin/bureau',[BureauController::class, 'index'])->name('admin.bureau');
+Route::get('/el-admin/bureau', [BureauController::class, 'index'])->name('admin.bureau');
+Route::resource('/el-admin/actualite', ActualiteController::class);
 Route::get('/front', [FrontController::class, 'home'])->name("front.home");
 Route::get('/actualite', [FrontController::class, 'actualite'])->name("front.actualite");
+Route::delete('/delete/{id}', [ActualiteController::class, 'destroy'])->name('delete_actualite')->where('id', '[0-9]+');
