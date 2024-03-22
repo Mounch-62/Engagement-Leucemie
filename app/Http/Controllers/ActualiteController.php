@@ -38,7 +38,6 @@ class ActualiteController extends Controller
      */
     public function show($actualite)
     {
-        //
     }
 
     /**
@@ -62,6 +61,8 @@ class ActualiteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Actualite::destroy($id);
+
+        return redirect()->back();
     }
 }

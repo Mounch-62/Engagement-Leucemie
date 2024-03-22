@@ -25,3 +25,4 @@ Route::get('/el-admin/bureau', [BureauController::class, 'index'])->name('admin.
 Route::resource('/el-admin/actualite', ActualiteController::class);
 Route::get('/front', [FrontController::class, 'home'])->name("front.home");
 Route::get('/actualite', [FrontController::class, 'actualite'])->name("front.actualite");
+Route::delete('/delete/{id}', [ActualiteController::class, 'destroy'])->name('delete_actualite')->where('id', '[0-9]+');
