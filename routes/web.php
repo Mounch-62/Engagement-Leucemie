@@ -3,6 +3,7 @@
 use App\Http\Controllers\FrontController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BureauController;
+use App\Http\Controllers\MediaController;
 use App\Http\Controllers\ActualiteController;
 /*
 |--------------------------------------------------------------------------
@@ -39,3 +40,10 @@ Route::get('/ajouterActu', [ActualiteController::class, 'create'])->name("ajoute
 Route::post('/traiter_form', [ActualiteController::class, 'store'])->name("enreg_actu");
 Route::delete('/delete/{id}', [ActualiteController::class, 'destroy'])->name('delete_actualite')->where('id', '[0-9]+');
 
+Route::get('/carousel', [MediaController::class, 'image'])->name("front.carousel");
+
+
+
+Route::get('/videos', [MediaController::class, 'video'])->name('front.video');
+Route::get('/front/bandeauInscrit',[FrontController::class,'test'])->name('front.bandeau-inscrit');
+Route::get('/el-admin/actualite', [MediaController::class,'backActualite'])->name('admin.actualite.index');

@@ -19,5 +19,4 @@
 <body class="overflow-x-hidden">
     @yield('base-content')
 </body>
-
 </html>
