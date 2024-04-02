@@ -12,7 +12,7 @@ class ActualiteController extends Controller
      */
     public function index()
     {
-        $actualites = Actualite::all();
+        $actualites = Actualite::orderBy('date', 'desc')->get();
         return view('admin.actualite.index', compact('actualites'));
         //
     }
@@ -48,8 +48,10 @@ class ActualiteController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($actualite)
+    public function show($id)
     {
+        $actualite = Actualite::find($id);
+        return view('admin.actualite.voirActu', compact('actualite'));
     }
 
     /**
@@ -63,9 +65,26 @@ class ActualiteController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $actualite)
+    public function update(Request $request, Actualite $actualite)
     {
-        //
+        // Validation des données
+        $validated = $request->validate([
+            'titre' => 'required|string|max:255',
+            'contenu' => 'required|string',
+            'date' => 'required|date',
+            'ville' => 'required|string|max:255',
+            'adresse' => 'required|string',
+            'lieu' => 'required|string',
+            'nbInscrit' => 'required|integer',
+            'nbParticipant' => 'required|integer',
+            'is_visible' => 'sometimes|boolean'
+        ]);
+
+        // Mise à jour de l'actualité
+        $actualite->update($validated);
+
+        // Redirection vers la liste des actualités avec un message de succès
+        return redirect()->route('admin.actualites.index')->with('success', 'Actualité mise à jour avec succès.');
     }
 
     /**
