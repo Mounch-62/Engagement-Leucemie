@@ -3,6 +3,8 @@
 use App\Http\Controllers\FrontController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BureauController;
+use App\Http\Controllers\MediaController;
+use App\Http\Controllers\ActualiteController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
