@@ -14,15 +14,11 @@ class MediaController extends Controller
     public function image()
     {
         $images = Media::where('type', 'image')->get();
-        dd($images)       ; 
-
         return View('front.carousel')->with(array('images'=>$images));
     }
     public function video()
     {
         $videos = Media::where('type', 'video')->get();
-        dd($videos);
-
         return View('front.video')->with(array('videos'=>$videos));
     }
     public function  backActualite()
