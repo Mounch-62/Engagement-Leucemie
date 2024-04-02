@@ -24,14 +24,10 @@ class BureauController extends Controller
         ]);
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
-        }
-        $photo = "photo";
-
-        // dd($request->role);
+        };
         Bureau::create([
             'nom' => $request->nom,
             'prenom' => $request->prenom,
-            'photo' => $photo, 
             'role' => $request->role,
         ]);
         return redirect()->back()->with('success', 'Adhérent ajouté avec succès.');
