@@ -1,6 +1,5 @@
 @extends("base")
 @section("title")
-    @parent Engagement Leucémie
 @stop
 @section("base-content")
 
