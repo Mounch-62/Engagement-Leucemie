@@ -14,7 +14,7 @@
       <th scope="col">Nombre de participant</th>
       <th scope="col">Terminé</th>
       <th>
-        <button>Ajouter</button>
+        <a href="{{ route ('ajouter_actu') }}">Ajouter</a>
       </th>
 
     </tr>

@@ -25,4 +25,6 @@ Route::get('/el-admin/bureau', [BureauController::class, 'index'])->name('admin.
 Route::resource('/el-admin/actualite', ActualiteController::class);
 Route::get('/front', [FrontController::class, 'home'])->name("front.home");
 Route::get('/actualite', [FrontController::class, 'actualite'])->name("front.actualite");
+Route::get('/ajouterActu', [ActualiteController::class, 'create'])->name("ajouter_actu");
+Route::post('/traiter_form', [ActualiteController::class, 'store'])->name("enreg_actu");
 Route::delete('/delete/{id}', [ActualiteController::class, 'destroy'])->name('delete_actualite')->where('id', '[0-9]+');

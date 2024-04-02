@@ -22,7 +22,7 @@ class ActualiteController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.actualite.ajouterActu');
     }
 
     /**
@@ -30,7 +30,19 @@ class ActualiteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newActualite = new Actualite;
+        $newActualite->titre = $request->get('titre');
+        $newActualite->contenu = $request->get('contenu');
+        $newActualite->date = $request->get('date');
+        $newActualite->ville = $request->get('ville');
+        $newActualite->adresse = $request->get('adresse');
+        $newActualite->lieu = $request->get('lieu');
+        $newActualite->nombre_inscrit = $request->get('nbInscrit');
+        $newActualite->nombre_participant = $request->get('nbParticipant');
+        $newActualite->is_visible = $request->get('est_termine') == 'on' ? 1 : 0;
+        $newActualite->save();
+
+        return redirect(route('actualite.index'));
     }
 
     /**
