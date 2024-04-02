@@ -3,7 +3,6 @@
 <table class="table">
   <thead>
     <tr>
-
       <th scope="col">Titre</th>
       <th scope="col">Contenu</th>
       <th scope="col">Nombre d'inscrits</th>
@@ -14,9 +13,8 @@
       <th scope="col">Nombre de participant</th>
       <th scope="col">Terminé</th>
       <th>
-        <button>Ajouter</button>
+        <a href="{{ route ('ajouter_actu') }}">Ajouter</a>
       </th>
-
     </tr>
   </thead>
   <tbody>
@@ -30,8 +28,9 @@
         <td>{{$actualite->ville}}</td>
         <td>{{$actualite->adresse}}</td>
         <td>{{$actualite->nombre_participant}}</td>
-        <td>{{$actualite->is_visible}}</td>
+        <td>{{$actualite->is_visible}}</td> 
         <td>
+          <a href="{{ route('actualite.show', $actualite) }}">Voir</a>
           <form method="post" action="{{ route ('delete_actualite' , [$actualite['id']])}}">
             @csrf
             @method("delete")
@@ -40,8 +39,6 @@
         </td>
       </tr> 
     @endforeach
-
-
   </tbody>
 </table>
  @stop
