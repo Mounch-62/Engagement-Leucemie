@@ -8,6 +8,8 @@ $warning: #ffbc00;
 $info: #39afd1;
 $light: #f0f0f0;
 $dark: #313a46;
+$white: #fff;
+
 
 $theme-colors: (
     "primary": $primary,
@@ -17,7 +19,9 @@ $theme-colors: (
     "warning": $warning,
     "info": $info,
     "light": $light,
-    "dark": $dark
+    "dark": $dark,
+    "white": $white
+
 );
 
 $custom-colors: (

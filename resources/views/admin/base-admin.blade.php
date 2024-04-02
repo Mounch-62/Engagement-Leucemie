@@ -1,6 +1,5 @@
 @extends("base")
 @section("title")
-    @parent Engagement Leucémie
 @stop
 @section("base-content")
 
@@ -50,6 +49,7 @@
                         <a class="collapse-item" href="cards.html">Actualitées futures</a>
                     </div>
                 </div>
+                
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
@@ -112,6 +112,11 @@
                 <a class="nav-link" href="{{route('admin.actualite.index')}}">
                     <i class="fas fa-fw fa-table"></i>
                     <span>actualite</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('actualite.index')}}">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Actualite</span></a>
             </li>
 
             <!-- Divider -->
