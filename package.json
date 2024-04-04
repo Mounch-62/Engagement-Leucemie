@@ -12,8 +12,10 @@
         "vite": "^5.1.6"
     },
     "dependencies": {
+        "@fontsource/karla": "^5.0.19",
         "@popperjs/core": "^2.11.8",
         "bootstrap": "^5.3.3",
+        "bootstrap-icons": "^1.11.3",
         "choices.js": "^10.2.0",
         "v": "^0.3.0"
     }
