@@ -15,4 +15,9 @@ class FrontController extends Controller
         // recup des données
         return view('front.actualite');
     }
+    public function bureau()
+    {
+        // recup des données
+        return view('front.bureau.bureau');
+    }
 }

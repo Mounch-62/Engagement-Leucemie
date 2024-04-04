@@ -18,6 +18,7 @@ Route::get('/', function () {return view('base.home');});
 Route::get('/el-admin', function () {return view('admin.base-admin');});
 Route::get('/el-admin/bureau',[BureauController::class, 'index'])->name('admin.bureau');
 Route::get('/front', [FrontController::class, 'home'])->name("front.home");
+Route::get('/bureau',[FrontController::class,'bureau'])->name("front.bureau");
 Route::get('/actualite', [FrontController::class, 'actualite'])->name("front.actualite");
 Route::post('/el-admin/bureau/add', [BureauController::class, 'store'])->name('admin.bureau.store');
 Route::put('/el-admin/bureau/update/{id}', [BureauController::class, 'update'])->name('admin.bureau.update');
