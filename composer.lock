@@ -4,7 +4,9 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+
     "content-hash": "7c4cbbc96b7632037ee668c65ba43b3e",
+
     "packages": [
         {
             "name": "brick/math",
@@ -5727,6 +5729,7 @@
     ],
     "packages-dev": [
         {
+
             "name": "archtechx/enums",
             "version": "v1.0.1",
             "source": {
@@ -5857,6 +5860,7 @@
             "time": "2024-04-04T02:42:49+00:00"
         },
         {
+
             "name": "composer/semver",
             "version": "3.4.0",
             "source": {
@@ -6181,7 +6185,7 @@
             ],
             "time": "2024-03-12T20:45:00+00:00"
         },
-        {
+       
             "name": "fakerphp/faker",
             "version": "v1.23.1",
             "source": {
