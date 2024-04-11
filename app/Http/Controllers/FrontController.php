@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\bureau;
 use App\Models\Actualite;
 use App\Models\Media;
 
@@ -21,5 +22,10 @@ class FrontController extends Controller
     public function test()
     {
         return view('front.bandeau-inscrit');
+    }
+    public function bureau()
+    {
+        $personalbureau = Bureau::all();
+        return view('front.bureau.bureau', compact('personalbureau'));
     }
 }
