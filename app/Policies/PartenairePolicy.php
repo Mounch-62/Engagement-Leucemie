@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
+use App\Models\Partenaire;
 use App\Models\User;
-use App\Models\bureau;
 use Illuminate\Auth\Access\Response;
 
-class BureauPolicy
+class PartenairePolicy
 {
     /**
      * Determine whether the user can view any models.
@@ -19,7 +19,7 @@ class BureauPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, bureau $bureau): bool
+    public function view(User $user, Partenaire $partenaire): bool
     {
         //
     }
@@ -35,7 +35,7 @@ class BureauPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, bureau $bureau): bool
+    public function update(User $user, Partenaire $partenaire): bool
     {
         //
     }
@@ -43,7 +43,7 @@ class BureauPolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, bureau $bureau): bool
+    public function delete(User $user, Partenaire $partenaire): bool
     {
         //
     }
@@ -51,7 +51,7 @@ class BureauPolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, bureau $bureau): bool
+    public function restore(User $user, Partenaire $partenaire): bool
     {
         //
     }
@@ -59,7 +59,7 @@ class BureauPolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, bureau $bureau): bool
+    public function forceDelete(User $user, Partenaire $partenaire): bool
     {
         //
     }

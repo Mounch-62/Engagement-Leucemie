@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\Actualite;
+use App\Models\Lien;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
 
-class ActualitePolicy
+class LienPolicy
 {
     /**
      * Determine whether the user can view any models.
@@ -19,7 +19,7 @@ class ActualitePolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Actualite $actualite): bool
+    public function view(User $user, Lien $lien): bool
     {
         //
     }
@@ -35,7 +35,7 @@ class ActualitePolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Actualite $actualite): bool
+    public function update(User $user, Lien $lien): bool
     {
         //
     }
@@ -43,7 +43,7 @@ class ActualitePolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Actualite $actualite): bool
+    public function delete(User $user, Lien $lien): bool
     {
         //
     }
@@ -51,7 +51,7 @@ class ActualitePolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Actualite $actualite): bool
+    public function restore(User $user, Lien $lien): bool
     {
         //
     }
@@ -59,7 +59,7 @@ class ActualitePolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Actualite $actualite): bool
+    public function forceDelete(User $user, Lien $lien): bool
     {
         //
     }

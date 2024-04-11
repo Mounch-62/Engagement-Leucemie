@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Actualite;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ActualiteController extends Controller
 {
@@ -30,19 +31,43 @@ class ActualiteController extends Controller
      */
     public function store(Request $request)
     {
-        $newActualite = new Actualite;
-        $newActualite->titre = $request->get('titre');
-        $newActualite->contenu = $request->get('contenu');
-        $newActualite->date = $request->get('date');
-        $newActualite->ville = $request->get('ville');
-        $newActualite->adresse = $request->get('adresse');
-        $newActualite->lieu = $request->get('lieu');
-        $newActualite->nombre_inscrit = $request->get('nbInscrit');
-        $newActualite->nombre_participant = $request->get('nbParticipant');
-        $newActualite->is_visible = $request->get('est_termine') == 'on' ? 1 : 0;
-        $newActualite->save();
+        $validator = Validator::make($request->all(), [
+            'titre' => 'required|min:6|string',
+            'contenu' => 'required|min:6|string',
+            'date' => 'required|date',
+            'ville' => 'required|string|max:255',
+            'adresse' => 'required|string',
+            'lieu' => 'required|string',
+            'nbInscrit' => 'required|integer',
+            'nbParticipant' => 'required|integer',
+            'is_visible' => 'sometimes|boolean'
 
-        return redirect(route('admin.actualite.index'));
+        ]);
+
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+
+        try {
+
+            $newActualite = new Actualite;
+            $newActualite->titre = $request->get('titre');
+            $newActualite->contenu = $request->get('contenu');
+            $newActualite->date = $request->get('date');
+            $newActualite->ville = $request->get('ville');
+            $newActualite->adresse = $request->get('adresse');
+            $newActualite->lieu = $request->get('lieu');
+            $newActualite->nombre_inscrit = $request->get('nbInscrit');
+            $newActualite->nombre_participant = $request->get('nbParticipant');
+            $newActualite->is_visible = $request->get('est_termine') == 'on' ? 1 : 0;
+            $newActualite->save();
+
+            return
+                redirect()->route('actualite.index')->with("success", "Actualité créée");
+        } catch (\Exception $e) {
+            return redirect()->route('base_admin')->with("error", "Problème lors de la création de l'actualité");
+        }
     }
 
     /**
@@ -67,24 +92,45 @@ class ActualiteController extends Controller
      */
     public function update(Request $request, Actualite $actualite)
     {
-        // Validation des données
-        $validated = $request->validate([
-            'titre' => 'required|string|max:255',
-            'contenu' => 'required|string',
+        $validator = Validator::make($request->all(), [
+            'titre' => 'required|min:6|string',
+            'contenu' => 'required|min:6|string',
             'date' => 'required|date',
             'ville' => 'required|string|max:255',
-            'adresse' => 'required|string',
-            'lieu' => 'required|string',
+            'adresse' => 'required|string|min:6',
+            'lieu' => 'required|string|min:6',
             'nbInscrit' => 'required|integer',
             'nbParticipant' => 'required|integer',
             'is_visible' => 'sometimes|boolean'
+
         ]);
 
-        // Mise à jour de l'actualité
-        $actualite->update($validated);
 
-        // Redirection vers la liste des actualités avec un message de succès
-        return redirect()->route('admin.actualites.index')->with('success', 'Actualité mise à jour avec succès.');
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+
+        try {
+
+            $actualite->titre = $request->input('titre');
+            $actualite->contenu = $request->input('contenu');
+            $actualite->date = $request->input('date');
+            $actualite->ville = $request->input('ville');
+            $actualite->adresse = $request->input('adresse');
+            $actualite->lieu = $request->input('lieu');
+            $actualite->nombre_inscrit = $request->input('nbInscrit');
+            $actualite->nombre_participant = $request->input('nbParticipant');
+            $actualite->is_visible = $request->input('est_termine') ? 1 : 0;
+
+            // Mise à jour de l'actualité
+            $actualite->save();
+
+            // Redirection vers la liste des actualités avec un message de succès
+            return
+                redirect()->back()->with('success', 'Actualité mise à jour avec succès.');
+        } catch (\Exception $e) {
+            return redirect()->route('base_admin')->with("error", "Problème lors de la mise à jour de l'actualité");
+        }
     }
 
     /**

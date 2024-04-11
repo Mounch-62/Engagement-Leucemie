@@ -1,5 +1,7 @@
 @extends('admin.base-admin')
 @section('content')
+
+
 <link href="bureau.css" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
