@@ -15,7 +15,8 @@ use App\Http\Controllers\ActualiteController;
 |
 */
 
-Route::get('/el-admin/bureau', [BureauController::class, 'index'])->name('admin.bureau');
+
+
 Route::get('/el-admin', function () {return view('admin.base-admin');});
 Route::get('/el-admin/bureau',[BureauController::class, 'index'])->name('admin.bureau');
 Route::post('/el-admin/bureau/add', [BureauController::class, 'store'])->name('admin.bureau.store');
@@ -32,5 +33,6 @@ Route::get('/front/bandeauInscrit',[FrontController::class,'test'])->name('front
 Route::resource('/el-admin/actualite', ActualiteController::class);
 Route::get('/el-admin/actualite', [ActualiteController::class,'index'])->name('admin.actualite.index');
 Route::get('/ajouterActu', [ActualiteController::class, 'create'])->name("ajouter_actu");
+
 Route::post('/traiter_form', [ActualiteController::class, 'store'])->name("enreg_actu");
 Route::delete('/delete/{id}', [ActualiteController::class, 'destroy'])->name('delete_actualite')->where('id', '[0-9]+');
