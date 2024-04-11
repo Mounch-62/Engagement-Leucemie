@@ -11,4 +11,7 @@ class Partenaire extends Model
     public function liens(){
         return $this->hasMany(Lien::class);
     }
+    public function mediatheque(){
+        return $this->hasOne(Mediatheque::class);
+    }
 }

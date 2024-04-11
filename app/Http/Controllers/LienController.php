@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Lien;
 use App\Http\Requests\StoreLienRequest;
 use App\Http\Requests\UpdateLienRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
 
 class LienController extends Controller
 {
@@ -15,7 +18,22 @@ class LienController extends Controller
     {
         //
     }
-
+    public function editLink($id, $idPartenaire, Request $request){
+        $validator = Validator::make($request->all(), [
+            'lien' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+        $lien = Lien::find($id);
+        $lien->lien = $request->get('lien');
+        $lien->save();
+        return redirect()->route('admin.showPartenaire', $idPartenaire)->with('success', 'Le lien  a bien été modifié.');
+    }
+    public function delete($id, $idPartenaire){
+        Lien::destroy($id);
+        return redirect()->route('admin.showPartenaire', $idPartenaire)->with('success', 'Le lien a bien été supprimé.');
+    }
     /**
      * Show the form for creating a new resource.
      */

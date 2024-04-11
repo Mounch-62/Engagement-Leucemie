@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('liens', function (Blueprint $table) {
             $table->id();
             $table->string('lien');
+            $table->string('nom');
             $table->foreignId('partenaire_id');
+            $table->timestamps();
         });
     }
 
