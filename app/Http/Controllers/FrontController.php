@@ -16,7 +16,7 @@ class FrontController extends Controller
     }
     public function actualite()
     {
-        $actualites = Actualite::all();
+        $actualites = Actualite::orderBy('date', 'desc')->get();
         return view('front.actualite', compact('actualites'));
     }
     public function test()

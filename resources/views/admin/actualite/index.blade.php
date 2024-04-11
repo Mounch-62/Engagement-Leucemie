@@ -13,17 +13,18 @@
       <th scope="col">Nombre de participant</th>
       <th scope="col">Terminé</th>
       <th>
-        <a href="{{ route ('ajouter_actu') }}">Ajouter</a>
+        <a href="{{ route ('actualite.create') }}">Ajouter</a>
       </th>
     </tr>
   </thead>
+  
   <tbody>
     @foreach ($actualites as $actualite)
-      <tr>
+      <tr class="col">
         <td>{{$actualite->titre}}</td>
         <td>{{$actualite->contenu}}</td>
         <td>{{$actualite->nombre_inscrit}}</td>
-        <td>{{$actualite->date}}</td>
+        <td>{{date('d-m-Y', strtotime($actualite->date))}}</td>
         <td>{{$actualite->lieu}}</td>
         <td>{{$actualite->ville}}</td>
         <td>{{$actualite->adresse}}</td>
@@ -31,7 +32,7 @@
         <td>{{$actualite->is_visible}}</td> 
         <td>
           <a href="{{ route('actualite.show', $actualite) }}">Voir</a>
-          <form method="post" action="{{ route ('delete_actualite' , [$actualite['id']])}}">
+          <form method="post" action="{{ route ('actualite.destroy' , [$actualite['id']])}}">
             @csrf
             @method("delete")
             <input type="submit" value="Supprimer">                                  
