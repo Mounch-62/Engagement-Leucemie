@@ -42,7 +42,7 @@ class ActualiteController extends Controller
         $newActualite->is_visible = $request->get('est_termine') == 'on' ? 1 : 0;
         $newActualite->save();
 
-        return redirect(route('actualite.index'));
+        return redirect(route('admin.actualite.index'));
     }
 
     /**

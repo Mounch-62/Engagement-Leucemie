@@ -1,16 +1,5 @@
-<!DOCTYPE html>
-<html>
 
-
-<head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../css/carousel.css">
-</head>
-<body>
-
-
-@section('videos')
-@show
+    @section("video")
     <div class="container">
         <div class="d-flex">
             <p class="font-weight-bold text-success">NOS</p>
@@ -35,5 +24,4 @@
             </div>
         </div>
     </div>
-</body>
-</html>
+    @show
