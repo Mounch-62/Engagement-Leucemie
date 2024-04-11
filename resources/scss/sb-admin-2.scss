@@ -478,7 +478,7 @@ mark,
 
 .img-fluid {
   max-width: 100%;
-  height: auto;
+  height: 300px;
 }
 
 .img-thumbnail {
@@ -6131,6 +6131,9 @@ a.close.disabled {
 }
 
 .carousel-inner {
+  display: flex;
+  align-items: center;
+ 
   position: relative;
   width: 100%;
   overflow: hidden;
@@ -6144,10 +6147,12 @@ a.close.disabled {
 
 .carousel-item {
   position: relative;
-  display: none;
+  display: flex;
   float: left;
   width: 100%;
   margin-right: -100%;
+  align-items: center;
+  justify-content: center;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   transition: transform 0.6s ease-in-out;
@@ -6162,7 +6167,7 @@ a.close.disabled {
 .carousel-item.active,
 .carousel-item-next,
 .carousel-item-prev {
-  display: block;
+  display: flex;
 }
 
 .carousel-item-next:not(.carousel-item-left),
@@ -6301,14 +6306,14 @@ a.close.disabled {
 
 .carousel-caption {
   position: absolute;
-  right: 15%;
+  right: auto;
   bottom: 20px;
-  left: 15%;
+  left: 0;
   z-index: 10;
   padding-top: 20px;
   padding-bottom: 20px;
   color: #fff;
-  text-align: center;
+  text-align: left;
 }
 
 @-webkit-keyframes spinner-border {
