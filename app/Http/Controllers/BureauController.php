@@ -60,3 +60,5 @@ class BureauController extends Controller
         return redirect()->back()->with('success', 'Adhérent supprimé avec succès.');
     }
 }
+
+    
