@@ -12,7 +12,7 @@ class FrontController extends Controller
     {
         $videos = Media::where('type', 'video')->get();
         $images = Media::where('type', 'image')->get();
-        return view('front.base-front')->with(array('images' => $images))->with(array('videos'=>$videos));
+        return view('front.home')->with(array('images' => $images))->with(array('videos'=>$videos));
     }
     public function actualite()
     {
